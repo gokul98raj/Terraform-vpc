@@ -4,6 +4,6 @@ Create a VPC with Public and Private Subnets on Multi-AZ
 
 1) Create a VPC
 2) Create both Public and Private Subnets of each AZ in the Region
-3) Create an Internet gateway and attached it to VPC
-4) Create a Route Table, route traffic to an internet gateway and associated to a public subnet in order to communicate with the internet.
-5) We will get the infrastructure as the picture attached.
+3) Create an Internet gateway and attach it to VPC
+4) Create a Route Table, route traffic to an internet gateway, and associate to a public subnet in order to communicate with the internet.
+5) We will get the infrastructure as shown in the picture.
