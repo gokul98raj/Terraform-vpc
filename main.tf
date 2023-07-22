@@ -8,7 +8,7 @@ resource "aws_vpc" "vpc_main" {
   instance_tenancy = "default"
 
   tags = {
-    name = Vpc_Main
+    Name = Vpc_Main
   }
 }
 
@@ -19,18 +19,18 @@ resource "aws_subnet" "public_subnets" {
   availability_zone = element(var.availability_zone, count.index)
 
   tags = {
-    name = "Public Subnet ${count.index + 1}"
+    Name = "Public Subnet ${count.index + 1}"
   }
 }
 
-resource "aws_subnet" "subnet_private" {
+resource "aws_subnet" "private_subnets" {
   count             = length(var.private_subnets_cidr)
   vpc_id            = aws_vpc.vpc_main.id
   cidr_block        = element(var.private_subnets_cidr, count.index)
   availability_zone = element(var.availability_zone, count.index)
 
   tags = {
-    name = "Private Subnet ${count.index + 1}"
+    Name = "Private Subnet ${count.index + 1}"
   }
 }
 
@@ -38,7 +38,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc_main.id
 
   tags = {
-    name = "vpc_main_igw"
+    Name = "vpc_main_igw"
   }
 
 }
@@ -52,7 +52,7 @@ resource "aws_route_table" "public_rt" {
   }
 
   tags = {
-    name = "Public Route "
+    Name = "Public Route "
   }
 
 }
